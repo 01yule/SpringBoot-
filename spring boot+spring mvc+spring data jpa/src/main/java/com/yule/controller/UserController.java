@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
 /**
@@ -26,18 +24,18 @@ public class UserController {
        List<User> list = userService.findAll();
        return list;
     }
- /*   //传统方式
+ //传统方式
 @RequestMapping("/findOne")
     public User findOneById(Integer id){
       User user=userService.findOneById(id);
       return user;
-    }*/
+    }
  //restful风格
-    @RequestMapping("/findOne/{id}")
+/*    @RequestMapping("/findOne/{id}")
  public User findOneById(@PathVariable("id") Integer id) {
      User user = userService.findOneById(id);
      return user;
- }
+ }*/
  @RequestMapping("/update")
  public void update(@RequestBody User user) { //// ajax传递json的字符串，json字符串转换成javabean
         userService.update(user);
